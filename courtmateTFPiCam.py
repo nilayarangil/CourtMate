@@ -29,7 +29,7 @@ def move_motors(direction):
         GPIO.output(MOTOR_RIGHT, GPIO.LOW)
 
 # Load TFLite model
-interpreter = Interpreter(model_path="tennis_ball_detector.tflite")
+interpreter = Interpreter(model_path="courtmate.tflite")
 interpreter.allocate_tensors()
 
 input_details = interpreter.get_input_details()
@@ -85,7 +85,7 @@ for frame in camera.capture_continuous(raw_capture, format="bgr", use_video_port
         move_motors("stop")
 
     # Show frame
-    cv2.imshow("Tennis Ball Detection", image)
+    cv2.imshow("CourtMate Ball Detection", image)
 
     # Clear the stream for the next frame
     raw_capture.truncate(0)
